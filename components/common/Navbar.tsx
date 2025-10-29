@@ -11,12 +11,12 @@ export default function Navbar() {
           alt="log"
           className=" h-12 w-12"
         />
-        <span className=" text-2xl font-bold">Room booking</span>
+        <span className=" text-2xl font-bold">Room Booking</span>
         </Link>
       </div>
       <div className=" gap-12 flex font-semibold">
         <Link href={"/rooms"}>Rooms</Link>
-        <Link href={"/rooms"}>About</Link>
+        <Link href={"/about"}>About</Link>
         <Link href={"/rooms"}>Guest</Link>
       </div>
     </div>
