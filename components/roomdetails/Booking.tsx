@@ -1,17 +1,18 @@
 import Link from "next/link";
 import BookCalender from "./BookCalender";
+import { RoomsCardProps } from "@/types/RoomsCardProps";
 
-export default function Booking() {
+export default function Booking({ room }: { room: RoomsCardProps }) {
   return (
     <div className="max-w-4xl mx-auto space-y-5">
       <h3 className="text-amber-300 text-4xl text-center font-semibold">
-        Reserve Bella Vesta Today! Pay On Arrival
+       {room.title}
       </h3>
 
       <div className="border border-gray-800 flex items-stretch justify-center">
         {/* Calendar Section */}
         <div className="flex-1">
-          <BookCalender />
+          <BookCalender room={room}/>
         </div>
 
         {/* Login Message Section */}

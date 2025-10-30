@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Cozy Riverside Cottage",
+    "description": "A peaceful cottage by the river with a beautiful view and private garden.",
+    "capacity": "small",
+    "totalGuestCapacity": 2,
+    "regularPrice": 80,
+    "discountedPrice": 60,
+    "isDiscountApplicable": true,
+    "location": "Sundarbans, Bangladesh",
+    "imageUrl": "https://example.com/images/riverside-cottage.jpg"
+  },
+  {
+    "title": "Urban Deluxe Suite",
+    "description": "Modern suite in the heart of the city, perfect for business travelers.",
+    "capacity": "medium",
+    "totalGuestCapacity": 4,
+    "regularPrice": 150,
+    "discountedPrice": 0,
+    "isDiscountApplicable": false,
+    "location": "Dhaka, Bangladesh",
+    "imageUrl": "https://example.com/images/urban-deluxe.jpg"
+  },
+  {
+    "title": "Luxury Beachfront Villa",
+    "description": "Spacious villa with ocean views, private pool, and direct beach access.",
+    "capacity": "large",
+    "totalGuestCapacity": 8,
+    "regularPrice": 400,
+    "discountedPrice": 320,
+    "isDiscountApplicable": true,
+    "location": "Cox's Bazar, Bangladesh",
+    "imageUrl": "https://example.com/images/beachfront-villa.jpg"
+  },
+  {
+    "title": "Mountain Retreat Cabin",
+    "description": "Rustic wooden cabin surrounded by hills, ideal for nature lovers.",
+    "capacity": "small",
+    "totalGuestCapacity": 3,
+    "regularPrice": 100,
+    "discountedPrice": 90,
+    "isDiscountApplicable": true,
+    "location": "Bandarban, Bangladesh",
+    "imageUrl": "https://example.com/images/mountain-cabin.jpg"
+  },
+  {
+    "title": "Family Garden House",
+    "description": "Spacious family-friendly house with a big garden and outdoor dining area.",
+    "capacity": "large",
+    "totalGuestCapacity": 6,
+    "regularPrice": 220,
+    "discountedPrice": 0,
+    "isDiscountApplicable": false,
+    "location": "Sylhet, Bangladesh",
+    "imageUrl": "https://example.com/images/family-garden.jpg"
+  }
+]
