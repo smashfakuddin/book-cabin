@@ -1,17 +1,27 @@
 import { dbConnect } from "@/db/dbConnect";
 import Rooms from "../../models/rooms";
 
-export async function getAllRooms() {
+
+export async function getAllRooms(type) {
   try {
     await dbConnect();
 
-    const rooms = await Rooms.find({}).lean();
+    // Build the query object
+    let query = {};
+
+    // Only filter if type is provided and not "all"
+    if (type && type !== "all") {
+      query.capacity = type; // assuming "capacity" field is used for type
+    }
+
+    const rooms = await Rooms.find(query).lean();
     return JSON.parse(JSON.stringify(rooms));
   } catch (error) {
     console.error("Error fetching rooms:", error);
     throw new Error("Failed to fetch rooms");
   }
 }
+
 
 
 export async function getRoomById(id) {
