@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --color-main: #d2b084;
+  --color-less: #c69963;
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -45,7 +49,7 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(22.15% 0.020 245.73);
+  --background: oklch(22.15% 0.02 245.73);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);

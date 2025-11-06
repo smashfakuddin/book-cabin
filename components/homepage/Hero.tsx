@@ -29,7 +29,7 @@ export default function Hero() {
     </div>
     <div className=" space-y-5 flex flex-col items-center justify-center h-[80vh]">
         <h2 className=" sm:text-5xl font-semibold text-center text-3xl">Book Your Relaxation Here</h2>
-        <Link href={"/rooms"} className=" px-5 py-3 bg-amber-500 text-black flex items-center">
+        <Link href={"/rooms"} className="bg-main hover:bg-less transition-colors duration-300 px-5 py-3 bg text-black flex items-center">
           <span>Explore Now{" "}</span>
           <RightArrow/>
         </Link>

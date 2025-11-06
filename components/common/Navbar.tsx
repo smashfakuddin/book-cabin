@@ -11,13 +11,13 @@ export default function Navbar() {
           alt="log"
           className=" h-12 w-12"
         />
-        <span className=" text-2xl font-bold">Room Booking</span>
+        <span className=" text-2xl font-bold ">Room Booking</span>
         </Link>
       </div>
       <div className=" gap-12 flex font-semibold">
-        <Link href={"/rooms"}>Rooms</Link>
-        <Link href={"/about"}>About</Link>
-        <Link href={"/rooms"}>Guest</Link>
+        <Link href={"/rooms"} className=" hover:text-less transition-colors duration-300">Rooms</Link>
+        <Link href={"/about"} className=" hover:text-less transition-colors duration-300">About</Link>
+        <Link href={"/rooms"} className=" hover:text-less transition-colors duration-300">Guest</Link>
       </div>
     </div>
     </div>

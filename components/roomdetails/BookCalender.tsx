@@ -15,7 +15,7 @@ export default function BookCalender({ room }: { room: RoomsCardProps }) {
       : 0;
 
   return (
-    <div className="flex flex-col  space-y-4 p-6">
+    <div className="flex flex-col flex-1 space-y-4 p-6">
       {/* Calendar */}
       <Calendar
         mode="range"
@@ -23,7 +23,7 @@ export default function BookCalender({ room }: { room: RoomsCardProps }) {
         onSelect={setDate}
         numberOfMonths={1}
         disabled={{ before: new Date() }}
-        className="rounded-lg border [--cell-size:--spacing(10)] md:[--cell-size:--spacing(10)]"
+        className="rounded-lg border [--cell-size:--spacing(10)] md:[--cell-size:--spacing(10)] w-full"
         // className="rounded-md border shadow"
       />
       <button className=" px-5 py-3 bg-amber-500 text-black w-full text-center gap-4">

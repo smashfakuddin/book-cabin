@@ -36,7 +36,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${leto.className} antialiased`}>
         <Navbar />
-        <div className="px-3">{children}</div>
+        <div className="px-3 py-3">{children}</div>
       </body>
     </html>
   );
