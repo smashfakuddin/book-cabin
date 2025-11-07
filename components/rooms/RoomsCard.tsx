@@ -6,7 +6,6 @@ import { RoomsCardProps } from "@/types/RoomsCardProps";
 import Link from "next/link";
 
 export default function RoomsCard({ room }: { room: RoomsCardProps }) {
-  console.log(room);
   return (
     <div className="border border-gray-700 flex gap-3 rounded-md relative">
       <div>

@@ -24,7 +24,7 @@ export default async function roomDetailPage({
 }) {
   const { roomId } = await params;
   const roomDetail = await getRoomById(roomId);
-  console.log(roomDetail);
+
   return (
     <div className=" container mx-auto pb-10">
       <DetailHero room={roomDetail} />

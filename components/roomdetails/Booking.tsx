@@ -4,11 +4,11 @@ import { RoomsCardProps } from "@/types/RoomsCardProps";
 import BookingSummary from "./BookingSummary";
 
 export default function Booking({ room }: { room: RoomsCardProps }) {
-  const user = {
-    name: "Ashfak Uddin",
-    email: "ash@mail.com",
-  };
-  // const user = null;
+  // const user = {
+  //   name: "Ashfak Uddin",
+  //   email: "ash@mail.com",
+  // };
+  const user = null;
   return (
     <div className="max-w-4xl mx-auto space-y-5">
       <h3 className="text-amber-300 text-4xl text-center font-semibold">

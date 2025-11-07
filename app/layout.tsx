@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
+import { dbConnect } from '@/db/dbConnect';
+import { auth } from '@/auth';
 
-import { dbConnect } from "@/db/dbConnect";
 
 const leto = Lato({
   weight: "400",
@@ -31,7 +32,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   await dbConnect();
-
+  const session = await auth();
+  console.log(session)
   return (
     <html lang="en">
       <body className={`${leto.className} antialiased`}>
