@@ -2,6 +2,7 @@ import DetailHero from "@/components/roomdetails/DetailHero";
 import Booking from "../../../components/roomdetails/Booking";
 import { getRoomById } from "@/db/queries/rooms";
 import { Metadata } from "next";
+import { auth } from "@/auth";
 
 type Props = {
   params: Promise<{ roomId: string }>;
@@ -22,13 +23,15 @@ export default async function roomDetailPage({
 }: {
   params: Promise<{ roomId: string }>;
 }) {
+  const session = await auth();
+
   const { roomId } = await params;
   const roomDetail = await getRoomById(roomId);
 
   return (
     <div className=" container mx-auto pb-10">
       <DetailHero room={roomDetail} />
-      <Booking room={roomDetail} />
+      <Booking room={roomDetail} session={session} />
     </div>
   );
 }

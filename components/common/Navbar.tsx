@@ -28,6 +28,12 @@ export default async function Navbar() {
             Rooms
           </Link>
           <Link
+            href={"/dashboard"}
+            className=" hover:text-less transition-colors duration-300"
+          >
+            Dashboard
+          </Link>
+          <Link
             href={"/about"}
             className=" hover:text-less transition-colors duration-300"
           >

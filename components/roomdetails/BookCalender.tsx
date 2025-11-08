@@ -1,19 +1,21 @@
 "use client";
 
-import * as React from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { differenceInDays } from "date-fns";
 import type { DateRange } from "react-day-picker"; // ✅ Import correct type
 import { RoomsCardProps } from "@/types/RoomsCardProps";
 
-export default function BookCalender({ room }: { room: RoomsCardProps }) {
-  const [date, setDate] = React.useState<DateRange | undefined>(undefined); // ✅ Proper type
-
-  const totalDays =
-    date?.from && date?.to
-      ? differenceInDays(date.to, date.from) + 1 // include both start & end
-      : 0;
-
+export default function BookCalender({
+  room,
+  totalDays,
+  date,
+  setDate,
+}: {
+  room: RoomsCardProps;
+  totalDays: number;
+  date: DateRange | undefined;
+  setDate: (value: DateRange | undefined) => void;
+}) {
   return (
     <div className="flex flex-col flex-1 space-y-4 p-6">
       {/* Calendar */}
