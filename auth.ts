@@ -10,53 +10,41 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
   providers: [
     Credentials({
-      // You can specify which fields should be submitted, by adding keys to the `credentials` object.
-      // e.g. domain, username, password, 2FA token, etc.
       credentials: {
         email: {},
         password: {},
       },
       authorize: async (credentials) => {
-        if (credentials == null) return null;
+        if (!credentials?.email || !credentials?.password) return null;
 
-        try {
-          await dbConnect();
-          const user = await User.findOne({ email: credentials?.email }).lean();
+        const user = await User.findOne({ email: credentials.email });
 
-          if (user) {
-            const isMatch = await bcrypt.compare(
-              credentials?.password,
-              user.password
-            );
+        if (!user) return null;
 
-            if (isMatch) {
-              const { password, ...rest } = user;
-              return rest;
-            } else {
-              console.error("password mismatch");
-              throw new Error("Check your password");
-            }
-          } else {
-            console.error("User not found");
-            throw new Error("User not found");
-          }
-        } catch (err) {
-          console.error(err);
-          return null;
-        }
+        const isMatch = await bcrypt.compare(
+          credentials.password as string,
+          user.password
+        );
+
+        if (!isMatch) throw new Error("Invalid password");
+
+        const { password, _id, ...rest } = user.toObject();
+        return { id: _id.toString(), ...rest };
       },
     }),
   ],
   callbacks: {
     async jwt({ token, user }) {
-      if (user) {
-        token.id = user._id.toString();
+      if (user && "_id" in user) {
+        token.id = (user as any)._id.toString();
       }
       return token;
     },
-    async session({ session, token }) {
-      session.user.id = token.id;
 
+    async session({ session, token }) {
+      if (session.user && token.id) {
+        (session.user as any).id = token.id;
+      }
       return session;
     },
   },

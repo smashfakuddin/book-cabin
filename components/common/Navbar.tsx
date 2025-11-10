@@ -40,7 +40,7 @@ export default async function Navbar() {
             About
           </Link>
           <Link
-            href={"/rooms"}
+            href={"/guest"}
             className=" hover:text-less transition-colors duration-300"
           >
             Guest

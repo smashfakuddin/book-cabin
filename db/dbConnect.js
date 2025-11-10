@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const MONGO_URI = process.env.MONGO_URI;
 
 
-console.log("mongouri",MONGO_URI);
+
 if (!MONGO_URI) {
   throw new Error('Please define the MONGODB_URI environment variable');
 }
