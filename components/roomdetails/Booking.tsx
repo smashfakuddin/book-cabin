@@ -40,7 +40,7 @@ export default function Booking({
 
         {/* Login Message Section */}
         {session?.user ? (
-          <BookingSummary room={room} totalDays={totalDays} date={date} />
+          <BookingSummary room={room} totalDays={totalDays} date={date} userId={session?.user?.id}/>
         ) : (
           <div className="bg-gray-900/50 flex-1 flex items-center justify-center p-6">
             <p className="text-center text-white text-xl font-semibold">

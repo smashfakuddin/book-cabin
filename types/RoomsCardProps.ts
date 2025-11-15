@@ -8,5 +8,6 @@ export type RoomsCardProps = {
   isDiscountApplicable: boolean;
   location: string;
   imageUrl: string;
+  availableRooms:number;
   _id?: string; // optional, since MongoDB adds this automatically
 };

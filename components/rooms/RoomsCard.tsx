@@ -16,9 +16,15 @@ export default function RoomsCard({ room }: { room: RoomsCardProps }) {
         />
       </div>
       <div className="space-y-2 w-full ">
-        <h3 className=" text-amber-300/70 text-xl font-semibold my-2">
-          {room.title}
-        </h3>
+        <div className="flex items-center justify-between">
+          <h3 className=" text-amber-300/70 text-xl font-semibold my-2">
+            {room.title}
+          </h3>
+          <span className="text-[11px] mx-3 bg-amber-900 font-semibold px-2 py-1 rounded-2xl">
+            {" "}
+            {room.availableRooms} Available
+          </span>
+        </div>
         <div className=" flex items-center gap-3 text-neutral-400">
           <DoubleUser />
           <span className=" ">For up to {room.totalGuestCapacity} guests</span>

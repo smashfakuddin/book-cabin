@@ -20,7 +20,7 @@ export default async function Navbar() {
             <span className=" text-2xl font-bold ">Room Booking</span>
           </Link>
         </div>
-        <div className=" gap-12 flex font-semibold">
+        <div className=" gap-12 flex items-center font-semibold">
           <Link
             href={"/rooms"}
             className=" hover:text-less transition-colors duration-300"

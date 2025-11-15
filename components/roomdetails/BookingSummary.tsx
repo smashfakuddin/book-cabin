@@ -1,19 +1,52 @@
 import { RoomsCardProps } from "@/types/RoomsCardProps";
+import { useState } from "react";
 import { DateRange } from "react-day-picker";
+import { bookRoom } from "@/db/queries/booking";
 
 export default function BookingSummary({
   room,
   totalDays,
   date,
-
+  userId,
 }: {
   room: RoomsCardProps;
   totalDays: number;
   date: DateRange | undefined;
-
+  userId: string | undefined;
 }) {
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
 
-  
+  const handleConfirm = async () => {
+    if (!date?.from || !date?.to) {
+      setMessage("Please select check-in and check-out dates");
+      return;
+    }
+
+    setLoading(true);
+    setMessage(null);
+
+    try {
+      const result = await bookRoom({
+        userId,
+        roomId: room._id,
+        numberOfRooms: 1, // or allow user to select quantity
+        startDate: date.from,
+        endDate: date.to,
+      });
+
+      if (result.success) {
+        setMessage(`Booking confirmed! ${result.availableRooms} rooms left.`);
+      } else {
+        setMessage(result.message);
+      }
+    } catch (err) {
+      setMessage("Booking failed. Try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="bg-gray-900/50 flex-1 h-full flex items-center justify-center p-6">
       <div className="bg-neutral-900 relative text-white p-6 h-full w-full rounded-lg shadow-lg flex flex-col justify-between">
@@ -39,7 +72,9 @@ export default function BookingSummary({
 
             <div className="flex justify-between">
               <span className="text-neutral-400">Guests</span>
-              <span className="font-medium">{room.totalGuestCapacity} Person</span>
+              <span className="font-medium">
+                {room.totalGuestCapacity} Person
+              </span>
             </div>
 
             <div className="border-t border-neutral-700 my-4"></div>
@@ -73,8 +108,11 @@ export default function BookingSummary({
           </div>
         </div>
 
-        <button className="mt-6 w-full bg-less text-black font-semibold py-2 rounded-md hover:bg-amber-500/50 cursor-pointer transition">
-          Confirm Reservation
+        <button
+          onClick={handleConfirm}
+          className="mt-6 w-full bg-less text-black font-semibold py-2 rounded-md hover:bg-amber-500/50 cursor-pointer transition"
+        >
+          {loading ? "Booking..." : "Confirm Reservation"}
         </button>
       </div>
     </div>
