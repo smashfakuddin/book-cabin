@@ -1,6 +1,7 @@
 import Link from "next/link";
+import {getDashboardSummary} from "@/db/queries/dashboard";
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
   const stats = [
     { id: 1, title: "Total Rooms", value: 24 },
     { id: 2, title: "Active Bookings", value: 12 },
@@ -32,6 +33,9 @@ export default function DashboardPage() {
     },
   ];
 
+  const summary = await getDashboardSummary();
+  console.log(summary);
+
   return (
     <main className="container mx-auto py-5">
       {/* Top Bar */}
@@ -47,7 +51,7 @@ export default function DashboardPage() {
 
       {/* Stats Grid */}
       <section className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-        {stats.map((item) => (
+        {summary.stats.map((item) => (
           <div
             key={item.id}
             className="  p-6 rounded-2xl shadow-sm hover:shadow-md transition-all border border-gray-700 "
@@ -73,15 +77,15 @@ export default function DashboardPage() {
               </tr>
             </thead>
             <tbody>
-              {recentBookings.map((b) => (
+              {summary.recentBookings.map((b) => (
                 <tr
                   key={b.id}
                   className="border-b border-gray-700 dark:border-neutral-700 hover:bg-neutral-900/60 cursor-pointer text-neutral-400 dark:hover:bg-neutral-800/60 transition-all duration-300"
                 >
-                  <td className="py-3 font-medium">{b.guest}</td>
-                  <td className="py-3">{b.room}</td>
+                  <td className="py-3 font-medium">{b.guestName}</td>
+                  <td className="py-3">{b.roomName}</td>
                   <td className="py-3 text-neutral-600 dark:text-neutral-300">
-                    {b.date}
+                    {b.checkIn}
                   </td>
                   <td className="py-3">
                     <span
