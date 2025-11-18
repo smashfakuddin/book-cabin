@@ -1,7 +1,9 @@
 import DoubleUser from "@/icons/DoubleUser";
 import { RoomsCardProps } from "@/types/RoomsCardProps";
+import AmenityItem from "./Aminities";
 
 export default function DetailHero({ room }: { room: RoomsCardProps }) {
+  console.log(room);
   return (
     <section className="flex items-center justify-center min-h-screen  px-4 sm:px-6 md:px-10 py-10">
       <div className="grid grid-cols-1 md:grid-cols-[3fr_4fr] gap-5 md:gap-10  rounded-md  shadow-md border border-gray-700 bg-[#131c24]">
@@ -35,6 +37,11 @@ export default function DetailHero({ room }: { room: RoomsCardProps }) {
             <div className="flex items-center gap-2 text-sm sm:text-base">
               <DoubleUser />
               <span>Private Lake View</span>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
+              {room.amenities.map((item) => (
+                <AmenityItem key={item} type={item} />
+              ))}
             </div>
           </div>
 

@@ -33,7 +33,7 @@ export default async function RootLayout({
 }>) {
   await dbConnect();
   const session = await auth();
-  console.log(session)
+
   return (
     <html lang="en">
       <body className={`${leto.className} antialiased`}>

@@ -18,7 +18,7 @@ export default function LoginPage() {
 
     try {
       const res = await credentialLogin({ email, password });
-      console.log("res", res);
+
       if (!res.ok) {
         setError(res.message || "Something went wrong");
         setLoading(false);

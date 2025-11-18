@@ -34,7 +34,7 @@ export default async function DashboardPage() {
   ];
 
   const summary = await getDashboardSummary();
-  console.log(summary);
+
 
   return (
     <main className="container mx-auto py-5">

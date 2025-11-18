@@ -1,4 +1,10 @@
+export type AmenityType =
+  | "wifi"
+  | "air conditioning"
+  | "tv"
+
 export type RoomsCardProps = {
+  amenities: AmenityType[],
   title: string;
   description: string;
   capacity: "small" | "medium" | "large";
